@@ -11,6 +11,10 @@ const App = () => {
     <div id="main">
       <AddTodo />
      {/* Render list of Todo Components here */}
+ <h1> Todo App </h1>
+    {/* <TodoApp /> */}
+
+
     </div>
   )
 }
