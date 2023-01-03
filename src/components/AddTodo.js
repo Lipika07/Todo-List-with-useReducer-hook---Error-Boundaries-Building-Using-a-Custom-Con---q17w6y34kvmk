@@ -1,15 +1,13 @@
-import React from "react";
-import {hot} from "react-hot-loader";
-// import TodoApp from "./components/TodoApp.jsx";
-import "./App.css";
+import React, {useState} from "react";
 
-const App = () => {
-  return(
-    <div className="App">
-      <h1> Todo App </h1>
-    {/* <TodoApp /> */}
+const AddTodo = ({add}) => {
+  const [text, setText] = useState("");
+  return (
+    <div className="AddTodo">
+      <input value={text} onChange={e => setText(e.target.value)} className="AddTodoInput" />
+      <button className="AddTodoButton" onClick={() => {add(text); setText("")}}>Add</button>
     </div>
   );
 }
 
-export { AddTodo }
+export default AddTodo;
