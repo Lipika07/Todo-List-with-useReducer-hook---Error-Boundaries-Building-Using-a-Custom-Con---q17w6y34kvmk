@@ -1,25 +1,14 @@
 
-import React, {useState} from "react";
-
-const Todo = ({ todo, remove, edit }) => {
-  const [mode, setMode] = useState("list");
-  const [text, setText] = useState(todo.text);
-  return (
-    <div className="Todo">
-      {mode === "list"
-        ? <>
-          <span className="TodoText">{todo.text}</span>
-          <button className="RemoveTodo" onClick={remove}>Remove</button>
-          <button className="EditTodo" onClick={() => setMode("edit")}>Edit</button>
-        </>
-        : <>
-          <input value={text} onChange={e => setText(e.target.value)} className="EditTodoInput" />
-          <button className="EditTodoSave" onClick={() => {edit(text); setMode("list");}}>Save</button>
-          <button className="EditTodoCancel" onClick={() => setMode("list")}>Cancel</button>
-        </>}
-    </div>
-  );
+import React from 'react';
+const Todo = ({title,dispatch,id}) => {
+    return (
+        <div className='todo'>
+            <div className="todo-title">{title}</div>
+            <button className='todo-delete' onClick={()=>{dispatch({type:'delTodo',id})}}>Remove</button>
+        </div>
+    )
 }
 
-export default Todo;
+
+export { Todo }
 
